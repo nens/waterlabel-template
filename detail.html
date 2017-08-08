@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waterlabel - Detailpagina</title>
+    <link rel="stylesheet" href="stylesheet.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,400i,500,700,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.1.0/dist/leaflet.css"
+      integrity="sha512-wcw6ts8Anuw10Mzh9Ytw4pylW8+NAD4ch3lqm9lzAsTxg0GFeJgoAtxuCLREZSC5lUXdVyo/7yfsqFjQ4S+aKw=="
+      crossorigin=""/>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+  </head>
+  <body onload="loaded()">
+    <div class="container">
+      <header>
+        <a href="/">
+          <img class="nodrag" src="images/logo.svg" width="200" />
+        </a>
+        <div class="btn-wat-is-het-waterlabel">
+          <a href="https://youtu.be/jARteOPf_aI" target="_blank">Wat is het Waterlabel?</a>
+        </div>
+      </header>
+
+      <div class="carousel" id="carousel">
+        <div id="scroller">
+          <img class="nodrag" src="https://maps.googleapis.com/maps/api/streetview?size=400x334&location=Waterweg+194,+3731+HS+De+Bilt&key=AIzaSyCxIGhh1oj5dz99JPkIEagUq63UbEb-CYs" />
+          <img class="nodrag" src="https://maps.googleapis.com/maps/api/staticmap?center=52.113805,5.180404&zoom=16&maptype=satellite&size=512x334" />
+        </div>
+      </div>
+
+      <div class="title-and-search">
+        <div>
+          <div class="ander-adres">
+            <a href="#">
+              <i class="material-icons">keyboard_arrow_left</i>&nbsp;Ander adres zoeken
+            </a>
+          </div>
+          <div class="waterlabel-in-circle">
+            <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <circle cx="20" cy="20" r="20" style="fill:#1B8E43"/>
+                <text x="50%" y="50%" text-anchor="middle" fill="#ffffff" stroke-width="2px" dy=".3em">A</text>
+            </svg>
+          </div>
+          <h1>Waterweg 194, 3731HS, De Bilt</h1>
+        </div>
+        <div class="huidig-label">
+          <span class="huidig-label-text">Huidig Waterlabel</span>
+          <div class="btn-huidig-label">Label A</div>
+        </div>
+      </div>
+
+      <div class="main-and-sidebar-wrapper">
+          <section class="main">
+
+            <div class="factsheet-section">
+              <h3 class="waterlabel-properties">Kenmerken</h3>
+              <p>Indien bepaalde kenmerken niet correct zijn, kun je <a href="#">contact met ons opnemen</a>.</p>
+              <table class="kenmerken">
+                <tr>
+                  <td>Type pand</td>
+                  <td>2-onder-1 kap</td>
+                </tr>
+                <tr>
+                  <td>Oppervlakte</td>
+                  <td>317 m<sup>2</sup></td>
+                </tr>
+                <tr>
+                  <td>Bouwjaar</td>
+                  <td>1933</td>
+                </tr>
+                <tr>
+                  <td>Oppervlakte</td>
+                  <td>67 m<sup>2</sup></td>
+                </tr>
+              </table>
+              <div class="show-all-details">
+                <a href="#">Toon alle kenmerken&nbsp;<i class="material-icons">keyboard_arrow_down</i></a>
+              </div>
+            </div>
+
+            <div class="factsheet-section">
+              <h3 class="waterlabel-properties">Waterlabelgeschiedenis</h3>
+              <table class="geschiedenis">
+                <tr>
+                  <td>
+                    <div class="label-date-wrapper">
+                      <span class="label-date"><p>02/08</p>2017</span>
+                    </div>
+                  </td>
+                  <td>
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <circle cx="10" cy="10" r="10" style="fill:#1B8E43"/>
+                    </svg>
+                  </td>
+                  <td>Herberekening</td>
+                  <td><strong>Label A</strong></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="label-date-wrapper">
+                      <span class="label-date"><p>12/01</p>2017</span>
+                    </div>
+                  </td>
+                  <td>
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <circle cx="10" cy="10" r="10" style="fill:#9DBA3A"/>
+                    </svg>
+                  </td>
+                  <td>Herberekening</td>
+                  <td><strong>Label C</strong></td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="label-date-wrapper">
+                      <span class="label-date"><p>20/05</p>2016</span>
+                    </div>
+                  </td>
+                  <td>
+                    <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <circle cx="10" cy="10" r="10" style="fill:#EB9D21"/>
+                    </svg>
+                  </td>
+                  <td>Automatische berekening</td>
+                  <td><strong>Label E</strong></td>
+                </tr>
+              </table>
+              <div class="show-all-details">
+                <a href="#">Toon alle historie&nbsp;<i class="material-icons">keyboard_arrow_down</i></a>
+              </div>
+            </div>
+
+
+            <div class="factsheet-section">
+              <div class="wateroverlast-score-percentage">
+                <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <circle cx="20" cy="20" r="20" style="fill:#1B8E43"/>
+                    <text x="50%" y="50%" text-anchor="middle" fill="#ffffff" stroke-width="2px" dy=".3em">93%</text>
+                </svg>
+              </div>
+              <h3 class="waterlabel-properties inset">Wateroverlastscore</h3>
+              <p>Dit perceel heeft een <strong>uitstekende wateroverlastscore</strong>, gebaseerd op de volgende parameters.</p>
+
+              <div class="overlast-factoren">
+                <table>
+                  <tr>
+                    <td>
+                      <img class="nodrag" src="images/waste-pipe.svg" height="55" />
+                      <h4>Riolering</h4>
+                      <p>Gemengd stelsel</p>
+                    </td>
+                    <td>
+                      <img class="nodrag" src="images/greenfactor.svg" height="55" />
+                      <h4>Groenfactor</h4>
+                      <p>47,78%</p>
+                    </td>
+                    <td>
+                      <img class="nodrag" src="images/drempelhoogte.svg" height="55" />
+                      <h4>Drempelhoogte</h4>
+                      <p>2,68 mNAP</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img class="nodrag" src="images/groundwaterlevel.svg" height="55" />
+                      <h4>Grondwaterpeil</h4>
+                      <p>1,6 mNAP</p>
+                    </td>
+                    <td>
+                      <img class="nodrag" src="images/soiltype.svg" height="55" />
+                      <h4>Bodemtype</h4>
+                      <p>Zand/lössgrond</p>
+                    </td>
+                    <td>
+                      <img class="nodrag" src="images/rainhistory.svg" height="55" />
+                      <h4>Neerslaghistorie</h4>
+                      <p>Gem. 827 mm/jaar</p>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div class="factsheet-section">
+              <h3 class="waterlabel-properties">Buurt, wijk &amp; gemeente</h3>
+              <p>Hier zie je hoe het Waterlabel van dit perceel zich verhoudt tot de andere buurten, tot wijken en tot andere gemeenten in Nederland.</p>
+
+              <div class="map-controls">
+                <div class="btn-full-screen">
+                  <a id="map-fullscreen"><i class="material-icons">fullscreen</i><span>Volledig scherm</span></a>
+                </div>
+                <ul class="map-region-zoom">
+                  <li><a id="map-buurt">Buurt</a></li>
+                  <li>&bull;</li>
+                  <li class="active"><a id="map-wijk">Wijk</a></li>
+                  <li>&bull;</li>
+                  <li><a id="map-gemeente">Gemeente</a></li>
+                  <li>&bull;</li>
+                  <li><a id="map-nederland">Nederland</a></li>
+                </ul>
+              </div>
+              <div id="waterlabel-map"></div>
+            </div>
+          </section>
+
+          <aside class="sidebar">
+            <div class="sidebar-bereken-mijn-waterlabel">
+              <div class="header">
+                <i class="material-icons" style="float:right;">label</i>
+                <p>Bereken mijn Waterlabel<p>
+              </div>
+              <div class="body">
+                <p>
+                  Beste bewoner,
+                </p>
+                <p>
+                  Jouw perceel heeft <strong>Waterlabel A</strong>. Het Waterlabel biedt inzicht
+                  in hoe je jouw perceel regenwaterbestendiger kunt maken.
+                </p>
+                <p>
+                  Hoe beter je het water vasthoudt op eigen perceel, hoe beter
+                  je Waterlabel.
+                </p>
+                <p>
+                  Hierdoor belast je de riolering niet onnodig.
+                </p>
+                <p class="call-to-action">
+                  <strong>
+                    Bereken hier jouw Waterlabel en bekijk wat je kunt doen, zo
+                    maken we Nederland samen klimaatbestendig!
+                  </strong>
+                </p>
+
+                <div class="btn-herbereken">
+                  Mijn Waterlabel berekenen
+                </div>
+
+                <div class="checkbox-owner">
+                  <form>
+                    <input type="checkbox" name="am_owner" id="am_owner" />
+                    <label for="am_owner">Ik ben de eigenaar van dit pand</label>
+                  </form>
+                </div>
+
+                <p class="tos">
+                  Door het invullen van dit formulier gaat u akkoord met de <a href="#">gebruiksvoorwaarden</a>.
+                </p>
+            </div>
+          </div>
+
+          <div class="share-buttons">
+            <div class="btn btn-share">
+              <i class="material-icons">mail_outline</i>&nbsp;&nbsp;Delen
+            </div>
+            <div class="btn btn-share">
+              Meer<i class="material-icons">keyboard_arrow_down</i>
+            </div>
+          </div>
+
+          <div class="sidebar-tips">
+            <h3>Tips voor een beter Waterlabel</h3>
+            <div class="tip tip-a">
+              <div class="tip-footer">
+                <p class="tip-footer-tag">Regenwateropslag</p>
+                <p class="tip-footer-text">Plaatsen van een regenton</p>
+              </div>
+            </div>
+            <div class="tip tip-b">
+              <div class="tip-footer">
+                <p class="tip-footer-tag">Betere infiltratie</p>
+                <p class="tip-footer-text">Gazon of gras in plaats van stenen</p>
+              </div>
+            </div>
+            <div class="show-all-tips">
+              <a href="#">Alle tips &amp; acties &nbsp;<i class="material-icons">keyboard_arrow_down</i></a>
+            </div>
+          </div>
+        </aside>
+      </div>
+      <footer>
+        <h2>Waterlabels per gemeente</h2>
+        <div class="list-of-cities">
+          <div>
+            <ul>
+              <li><a href="#">Amsterdam</a></li>
+              <li><a href="#">Almere</a></li>
+              <li><a href="#">Amsterdam</a></li>
+              <li><a href="#">Almere</a></li>
+              <li><a href="#">Amsterdam</a></li>
+              <li><a href="#">Almere</a></li>
+              <li><a href="#">Amsterdam</a></li>
+              <li><a href="#">Almere</a></li>
+              <li><a href="#">Amsterdam</a></li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li><a href="#">Leiderdorp</a></li>
+              <li><a href="#">Leidschendam-Voorburg</a></li>
+              <li><a href="#">Leiderdorp</a></li>
+              <li><a href="#">Leidschendam-Voorburg</a></li>
+              <li><a href="#">Leiderdorp</a></li>
+              <li><a href="#">Leidschendam-Voorburg</a></li>
+              <li><a href="#">Leiderdorp</a></li>
+              <li><a href="#">Leidschendam-Voorburg</a></li>
+              <li><a href="#">Leiderdorp</a></li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li><a href="#">Purmerend</a></li>
+              <li><a href="#">Putten</a></li>
+              <li><a href="#">Purmerend</a></li>
+              <li><a href="#">Putten</a></li>
+              <li><a href="#">Purmerend</a></li>
+              <li><a href="#">Putten</a></li>
+              <li><a href="#">Purmerend</a></li>
+              <li><a href="#">Putten</a></li>
+              <li><a href="#">Purmerend</a></li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li><a href="#">Roermond</a></li>
+              <li><a href="#">Roosendaal</a></li>
+              <li><a href="#">Roermond</a></li>
+              <li><a href="#">Roosendaal</a></li>
+              <li><a href="#">Roermond</a></li>
+              <li><a href="#">Roosendaal</a></li>
+              <li><a href="#">Roermond</a></li>
+              <li><a href="#">Roosendaal</a></li>
+              <li><a href="#">Roermond</a></li>
+            </ul>
+          </div>
+          <div>
+            <ul>
+              <li><a href="#">Woerden</a></li>
+              <li><a href="#">Wormerland</a></li>
+              <li><a href="#">Woerden</a></li>
+              <li><a href="#">Wormerland</a></li>
+              <li><a href="#">Woerden</a></li>
+              <li><a href="#">Wormerland</a></li>
+              <li><a href="#">Woerden</a></li>
+              <li><a href="#">Wormerland</a></li>
+              <li><a href="#">Woerden</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="participants">
+          <div class="social-icons">
+            <svg width="57px" height="57px" viewBox="0 0 57 57" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="facebook" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Desktop-HD-Detail-A" transform="translate(-1314.000000, -3384.000000)">
+                        <g id="footer" transform="translate(71.000000, 3378.000000)">
+                            <g id="social" transform="translate(1171.000000, 7.000000)">
+                                <g id="social-icon-facebook" transform="translate(73.000000, 0.000000)">
+                                    <path d="M36.0238611,13.2042007 L36.0238611,18.3782003 L32.9468992,18.3782003 C31.8232472,18.3782003 31.0654468,18.6133797 30.6734752,19.0837457 C30.2815035,19.5541116 30.0855207,20.25965 30.0855207,21.2003819 L30.0855207,24.9044952 L35.8278762,24.9044952 L35.0635354,30.7056462 L30.0855207,30.7056462 L30.0855207,45.580895 L24.0883848,45.580895 L24.0883848,30.7056462 L19.0907716,30.7056462 L19.0907716,24.9044952 L24.0883848,24.9044952 L24.0883848,20.6320259 C24.0883848,18.2018018 24.7677921,16.3170998 26.126627,14.9778635 C27.485462,13.6386271 29.2950372,12.9690189 31.5554069,12.9690189 C33.4760679,12.9690189 34.9655377,13.0474121 36.0238611,13.2042007 Z" id="facebook---FontAwesome" fill="#B5B5B5"></path>
+                                    <circle id="Oval" stroke="#979797" cx="27.5" cy="27.5" r="27.5"></circle>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            <svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="twitter" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Desktop-HD-Detail-A" transform="translate(-1241.000000, -3384.000000)">
+                        <g id="footer" transform="translate(71.000000, 3378.000000)">
+                            <g id="social" transform="translate(1171.000000, 7.000000)">
+                                <g id="social-icon-twitter">
+                                    <path d="M42.9920396,18.7209192 C42.1619404,19.9350941 41.1584027,20.9696052 39.9813964,21.8244835 C39.9937859,21.997937 39.9999806,22.2581135 39.9999806,22.6050206 C39.9999806,24.2156608 39.7645829,25.8231795 39.2937804,27.427625 C38.8229778,29.0320704 38.1074926,30.5714477 37.1473033,32.045803 C36.1871139,33.5201582 35.044196,34.8241378 33.7185152,35.9577807 C32.3928344,37.0914236 30.7946077,37.9958465 28.9237872,38.6710764 C27.0529666,39.3463063 25.0520859,39.6839162 22.921085,39.6839162 C19.5635196,39.6839162 16.4909598,38.785688 13.7033133,36.9892047 C14.1369472,37.0387629 14.620132,37.0635416 15.1528822,37.0635416 C17.9405287,37.0635416 20.4245942,36.2086762 22.6051533,34.4989196 C21.3042516,34.4741405 20.1396523,34.0745839 19.1113205,33.3002376 C18.0829886,32.5258914 17.3767954,31.5378404 16.9927197,30.336055 C17.4015745,30.3980027 17.7794498,30.4289761 18.126357,30.4289761 C18.6591072,30.4289761 19.1856547,30.3608346 19.7060154,30.2245497 C18.3183869,29.9395902 17.1692743,29.2488837 16.2586431,28.1524094 C15.3480119,27.0559351 14.8927032,25.782929 14.8927032,24.3333528 L14.8927032,24.2590159 C15.7351919,24.7298185 16.6396147,24.9838002 17.6059989,25.0209688 C16.7882892,24.4758291 16.1378481,23.7634412 15.6546561,22.8837839 C15.171464,22.0041265 14.9298716,21.0501462 14.9298716,20.0218144 C14.9298716,18.9315349 15.2024374,17.9218025 15.7475771,16.992587 C17.2467115,18.8386285 19.0710439,20.316059 21.2206291,21.4249228 C23.3702143,22.5337867 25.6715369,23.150157 28.1246658,23.2740524 C28.0255495,22.8032499 27.9759921,22.3448438 27.9759921,21.8988204 C27.9759921,20.238622 28.5613891,18.8231383 29.7322006,17.6523267 C30.9030121,16.4815152 32.3184959,15.8961182 33.9786942,15.8961182 C35.7132298,15.8961182 37.1751737,16.5279753 38.3645695,17.7917083 C39.7150294,17.531528 40.9849382,17.0483432 42.174334,16.3421394 C41.715921,17.7669365 40.8362769,18.869589 39.5353752,19.6501301 C40.6876024,19.5262347 41.8398124,19.2165008 42.9920396,18.7209192 Z" id="twitter---FontAwesome" fill="#B5B5B5"></path>
+                                    <circle id="Oval" stroke="#979797" cx="27" cy="27" r="27"></circle>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+          </div>
+          <div class="logo-stretch">
+            <div class="logo agv">
+              <img src="images/logo-agv.png" />
+            </div>
+            <div class="logo denhaag">
+              <img src="images/logo-denhaag.png" />
+            </div>
+            <div class="logo rotterdam">
+              <img src="images/logo-rotterdam.png" />
+            </div>
+            <div class="logo waag">
+              <img src="images/logo-waag.png" />
+            </div>
+            <div class="logo rainproof">
+              <img src="images/logo-rainproof.png" />
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src='iscroll-lite.js'></script>
+    <script src="https://unpkg.com/leaflet@1.1.0/dist/leaflet.js"
+      integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
+      crossorigin=""></script>
+    <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+    <script src="leaflet.sleep.js"></script>
+    <script>
+      var myScroll;
+      function loaded () {
+      	myScroll = new IScroll('#carousel', {
+          eventPassthrough: true,
+          scrollX: true,
+          scrollY: false,
+          preventDefault: false
+        });
+      }
+
+      var map = L.map("waterlabel-map", {
+        hoverToWake: false,
+        wakeMessage: "Klik of tap om te bedienen",
+        sleepOpacity: 1
+      }).setView([52.113805, 5.180404], 18);
+      L.tileLayer(
+        "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.5641a12c/{z}/{x}/{y}.png"
+      ).addTo(map);
+      L.tileLayer(
+        "https://www.waterlabel.net/media/tiles/waterlabel/{z}/{x}/{y}.png",
+        {
+          attribution:
+            '&copy; <a href="https://www.nelen-schuurmans.nl/">Nelen &amp; Schuurmans</a>'
+        }
+      ).addTo(map);
+      L.tileLayer(
+        "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.0a5c8e74/{z}/{x}/{y}.png"
+      ).addTo(map);
+
+      var active = null;
+      var mapBuurt = document.getElementById('map-buurt');
+      var mapWijk = document.getElementById('map-wijk');
+      var mapGemeente = document.getElementById('map-gemeente');
+      var mapNederland = document.getElementById('map-nederland');
+      var mapFullscreen = document.getElementById('map-fullscreen');
+
+      mapBuurt.onclick = function(e) {
+        active = "buurt";
+        map.setView([52.113805, 5.180404], 18);
+      }
+      mapWijk.onclick = function(e) {
+        active = "wijk";
+        map.setView([52.113805, 5.180404], 15);
+      }
+      mapGemeente.onclick = function(e) {
+        active = "gemeente";
+        map.setView([52.113805, 5.180404], 13);
+      }
+      mapNederland.onclick = function(e) {
+        active = "nederland";
+        map.setView([52.2133242,5.3373672], 7);
+      }
+      mapFullscreen.onclick = function(e) {
+        map.toggleFullscreen();
+      }
+    </script>
+  </body>
+</html>
