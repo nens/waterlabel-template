@@ -591,7 +591,7 @@ ul.map-region-zoom li.active {
 }
 @media (max-width: 950px) {
   .search-waterlabel {
-    height: 100px;
+    height: 80px;
   }
 }
 
@@ -624,7 +624,7 @@ ul.inputs li {
   position: relative;
 }
 ul.inputs li:first-child {
-  width: 50%;
+  width: 60%;
 }
 .searchSubmit {
   border-radius: 5px;
@@ -670,11 +670,98 @@ ul.inputs li input.search-field {
   -webkit-appearance: textfield;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 867px) {
   .search-waterlabel input[type=search] {
     height: 48px;
     font-size: 20px;
     line-height: 24px;
     padding-right: 80px;
   }
+}
+
+.ook-een-beter-waterlabel {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+
+@media only screen and (max-width: 950px) {
+  .ook-een-beter-waterlabel {
+    margin-top: 150px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .ook-een-beter-waterlabel {
+    flex-direction: column;
+    margin-top: 90px;
+  }
+  .txt-zoeken {
+    display: none;
+  }
+
+}
+.ook-een-beter-waterlabel .text {
+  color: #606060;
+}
+.ook-een-beter-waterlabel .text h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 50px;
+  font-weight: 300;
+}
+.ook-een-beter-waterlabel p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 35px;
+  font-weight: 100;
+}
+.ook-een-beter-waterlabel .graphic {
+  display: flex;
+  align-items: flex-end;
+  width: 50%;
+}
+.ook-een-beter-waterlabel .graphic svg {
+  width: 400px;
+}
+
+
+.btn-advies {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: #00cd88;
+  border-radius: 7px;
+  height: 56px;
+  width: 250px;
+}
+.btn-advies a {
+  font-family: Roboto, sans-serif;
+  font-weight: 100;
+  font-size: 20px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+
+.uitgelicht {
+  border-top: 1px solid #E4E4E4;
+  margin-top: 20px;
+}
+.uitgelicht h2 {
+  color: #606060;
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.three-up {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.waterlabel-uitgelicht {
+  width: 200px;
+  height: 200px;
 }
