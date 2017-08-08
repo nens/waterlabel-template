@@ -33,7 +33,7 @@
         <fieldset class="search form-group">
           <ul class="inputs">
             <li class="searchField">
-              <input type="search" class="search-field" name="q" autocomplete="off" />
+              <input type="search" class="search-field" name="q" id="q" autocomplete="off" />
             </li>
             <li class="searchSubmit">
               <button type="submit" class="btn-search">
@@ -177,15 +177,50 @@
         <h2>Uitgelicht</h2>
         <div class="three-up">
           <div class="waterlabel-uitgelicht">
-            <div id="minimap1" data-lat="52.5048" data-lng="4.9468" data-zoom="18"></div>
+            <div class="minimap-footer">
+              <div class="label-mini-indicator">
+                <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <circle cx="5" cy="5" r="5" style="fill:#C22B27"/>
+                </svg><span>Nieuw label</span>
+              </div>
+              <p class="minimap-address">
+                <a href="detail.html">Waterspiegelplein 2, Amsterdam</a>
+              </p>
+            </div>
+            <div id="minimap1" class="minimap" data-lat="52.5048" data-lng="4.9468" data-zoom="18"></div>
           </div>
           <div class="waterlabel-uitgelicht">
-            <div id="minimap2" data-lat="52.5040" data-lng="4.9692" data-zoom="18"></div>
+            <div class="minimap-footer">
+              <div class="label-mini-indicator">
+                <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <circle cx="5" cy="5" r="5" style="fill:#E49B29"/>
+                </svg><span>Nieuw label</span>
+              </div>
+              <p class="minimap-address">
+                <a href="detail.html">Valkhof 31, Purmerend</a>
+              </p>
+            </div>
+            <div id="minimap2" class="minimap" data-lat="52.5040" data-lng="4.9592" data-zoom="18"></div>
           </div>
           <div class="waterlabel-uitgelicht">
-            <div id="minimap2" data-lat="52.5172" data-lng="4.9756" data-zoom="18"></div>
+            <div class="minimap-footer">
+              <div class="label-mini-indicator">
+                <svg width="10" height="10" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <circle cx="5" cy="5" r="5" style="fill:#E49B29"/>
+                </svg><span>Nieuw label</span>
+              </div>
+              <p class="minimap-address">
+                <a href="detail.html">Slufterplantsoen 8, Almere</a>
+              </p>
+            </div>
+
+            <div id="minimap3" class="minimap" data-lat="52.5172" data-lng="4.9756" data-zoom="18"></div>
           </div>
         </div>
+        <div class="btn btn-kaart-bekijken"><a href="#">Kaart bekijken</a></div>
       </div>
 
 
@@ -314,38 +349,81 @@
       integrity="sha512-mNqn2Wg7tSToJhvHcqfzLMU6J4mkOImSPTxVZAdo+lcPlk+GhZmYgACEe0x35K7YzW1zJ7XyJV/TT1MrdXvMcA=="
       crossorigin=""></script>
     <script>
-    var minimap1 = document.getElementById('minimap1');
-    var map1 = L.map('minimap1').setView([minimap1.dataset.lat, minimap1.dataset.lng], minimap1.dataset.zoom);
-    L.tileLayer(
-      "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.5641a12c/{z}/{x}/{y}.png"
-    ).addTo(map1);
-    L.tileLayer(
-      "https://www.waterlabel.net/media/tiles/waterlabel/{z}/{x}/{y}.png",
-      {
-        attribution:
-          '&copy; <a href="https://www.nelen-schuurmans.nl/">Nelen &amp; Schuurmans</a>'
-      }
-    ).addTo(map1);
-    L.tileLayer(
-      "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.0a5c8e74/{z}/{x}/{y}.png"
-    ).addTo(map1);
+      window.onload = function() {
+        document.getElementById("q").focus();
+      };
 
-    var minimap2 = document.getElementById('minimap2');
-    var map2 = L.map('minimap2').setView([minimap2.dataset.lat, minimap2.dataset.lng], minimap2.dataset.zoom);
-    L.tileLayer(
-      "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.5641a12c/{z}/{x}/{y}.png"
-    ).addTo(map2);
-    L.tileLayer(
-      "https://www.waterlabel.net/media/tiles/waterlabel/{z}/{x}/{y}.png",
-      {
-        attribution:
-          '&copy; <a href="https://www.nelen-schuurmans.nl/">Nelen &amp; Schuurmans</a>'
-      }
-    ).addTo(map2);
-    L.tileLayer(
-      "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.0a5c8e74/{z}/{x}/{y}.png"
-    ).addTo(map2);
+      var map1 = L.map("minimap1", { zoomControl: false }).setView(
+        [minimap1.dataset.lat, minimap1.dataset.lng],
+        minimap1.dataset.zoom
+      );
+      L.tileLayer(
+        "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.5641a12c/{z}/{x}/{y}.png"
+      ).addTo(map1);
+      L.tileLayer(
+        "https://www.waterlabel.net/media/tiles/waterlabel/{z}/{x}/{y}.png",
+        {
+          attribution:
+            '&copy; <a href="https://www.nelen-schuurmans.nl/">Nelen &amp; Schuurmans</a>'
+        }
+      ).addTo(map1);
+      L.tileLayer(
+        "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.0a5c8e74/{z}/{x}/{y}.png"
+      ).addTo(map1);
 
+      var map2 = L.map("minimap2", { zoomControl: false }).setView(
+        [minimap2.dataset.lat, minimap2.dataset.lng],
+        minimap2.dataset.zoom
+      );
+      L.tileLayer(
+        "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.5641a12c/{z}/{x}/{y}.png"
+      ).addTo(map2);
+      L.tileLayer(
+        "https://www.waterlabel.net/media/tiles/waterlabel/{z}/{x}/{y}.png",
+        {
+          attribution:
+            '&copy; <a href="https://www.nelen-schuurmans.nl/">Nelen &amp; Schuurmans</a>'
+        }
+      ).addTo(map2);
+      L.tileLayer(
+        "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.0a5c8e74/{z}/{x}/{y}.png"
+      ).addTo(map2);
+
+      var map3 = L.map("minimap3", { zoomControl: false }).setView(
+        [minimap3.dataset.lat, minimap3.dataset.lng],
+        minimap3.dataset.zoom
+      );
+      L.tileLayer(
+        "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.5641a12c/{z}/{x}/{y}.png"
+      ).addTo(map3);
+      L.tileLayer(
+        "https://www.waterlabel.net/media/tiles/waterlabel/{z}/{x}/{y}.png",
+        {
+          attribution:
+            '&copy; <a href="https://www.nelen-schuurmans.nl/">Nelen &amp; Schuurmans</a>'
+        }
+      ).addTo(map3);
+      L.tileLayer(
+        "https://{s}.tiles.mapbox.com/v3/nelenschuurmans.0a5c8e74/{z}/{x}/{y}.png"
+      ).addTo(map3);
+
+      map1.touchZoom.disable();
+      map1.doubleClickZoom.disable();
+      map1.scrollWheelZoom.disable();
+      map1.boxZoom.disable();
+      map1.keyboard.disable();
+
+      map2.touchZoom.disable();
+      map2.doubleClickZoom.disable();
+      map2.scrollWheelZoom.disable();
+      map2.boxZoom.disable();
+      map2.keyboard.disable();
+
+      map3.touchZoom.disable();
+      map3.doubleClickZoom.disable();
+      map3.scrollWheelZoom.disable();
+      map3.boxZoom.disable();
+      map3.keyboard.disable();
     </script>
 
   </body>
